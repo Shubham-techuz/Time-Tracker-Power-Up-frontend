@@ -76,7 +76,7 @@ document.getElementById("track-time").addEventListener("click", function(event){
                 let totalTime = timeDifference(timestampDifference);
                 let fullTimeOnCard = "00 : 00 : 00";
                 // GET Timestamp
-                let previousTimeStampRes = await fetch(`https://trello-power-up-backend.herokuapp.com/timestamp/${cardId}`);
+                let previousTimeStampRes = await fetch(`https://time-tracker-power-up.herokuapp.com/timestamp/${cardId}`);
                 previousTimeStampRes = await previousTimeStampRes.json();
                 console.log("previousTimeStampRes ====>", previousTimeStampRes);
 
@@ -86,7 +86,7 @@ document.getElementById("track-time").addEventListener("click", function(event){
                     fullTimeOnCard = timeDifference(fullTimestampOnCard);
 
                     // PUT Timestamp
-                    let timestampPutRes = await fetch(`https://trello-power-up-backend.herokuapp.com/timestamp/${cardId}`, {
+                    let timestampPutRes = await fetch(`https://time-tracker-power-up.herokuapp.com/timestamp/${cardId}`, {
                         method: "Put", 
                         body: JSON.stringify({completeTime}),
                         headers: {
@@ -99,7 +99,7 @@ document.getElementById("track-time").addEventListener("click", function(event){
                     // POST Timestamp
                     fullTimeOnCard = totalTime;
                     let completeTime = timestampDifference;
-                    let timestampPostRes = await fetch('https://trello-power-up-backend.herokuapp.com/timestamp', {
+                    let timestampPostRes = await fetch('https://time-tracker-power-up.herokuapp.com/timestamp', {
                         method: 'post',
                         body: JSON.stringify({cardId, completeTime}),
                         headers: {
@@ -113,7 +113,7 @@ document.getElementById("track-time").addEventListener("click", function(event){
                 
                 
                 //Post Api
-                let result = await fetch('https://trello-power-up-backend.herokuapp.com/', {
+                let result = await fetch('https://time-tracker-power-up.herokuapp.com/', {
                     method: 'post',
                     body: JSON.stringify({cardId, cardName, cardDescription, startTime, stopTime, totalTime}),
                     headers: {
@@ -175,9 +175,9 @@ t.render(function(){
             }
         }
     })
-    // .then(function(){
-    //     t.sizeTo('#content').done();   
-    // })
+    .then(function(){
+        t.sizeTo('#content').done();   
+    })
 });
 
 // {_id: '63760d79e25a1120dc2b7a7c', cardId: '636a02014cd95b01886e3e5a', completeTime: '6696', __v: 0}
