@@ -50,13 +50,11 @@ document.getElementById("track-time").addEventListener("click", function(event){
             try {
                 let startTime = Date();
                 let startTimestamp = new Date().getTime();
-                let cardData = await t.card('id', 'name', 'desc');
+                let cardData = await t.card('id', 'name');
                 let cardId = cardData.id;
                 let cardName = cardData.name;
-                let cardDescription = cardData.desc;
-                console.log("on click description---> ", cardDescription);
                 // console.log('cardId ==> ', cardId, ' name==> ', cardName);
-                return t.set('card', 'shared', { cardId: cardId, cardName: cardName, cardDescription: cardDescription, startTime: startTime, startTimestamp: startTimestamp });
+                return t.set('card', 'shared', { cardId: cardId, cardName: cardName, startTime: startTime, startTimestamp: startTimestamp });
             } catch(err) {
                 console.log("Error===>", err);
             }
@@ -137,7 +135,7 @@ document.getElementById("track-time").addEventListener("click", function(event){
 });
 
 document.getElementById("clear-time").addEventListener("click", function(event){
-    return t.remove('card', 'shared', ['cardId', ' cardName', 'cardDescription', 'startTime', 'stopTime', 'totalTime'])
+    return t.remove('card', 'shared', ['cardId', ' cardName', 'startTime', 'stopTime', 'totalTime'])
     .then(function() {
         return t.closeModal();
     })
@@ -149,14 +147,12 @@ t.render(function(){
     .then(async function(sharedDate){
         console.log("---Render---");
         
-        let cardData = await t.card('name', 'desc');
+        let cardData = await t.card('name');
         document.getElementById('card-name').textContent = cardData.name;
-        document.getElementById('card-description').innerHTML = cardData.desc;
         
         if(Object.keys(sharedDate).length > 0) {
-            let {card: {shared: {stopTime, startTime, totalTime, cardName, cardDescription}}} = sharedDate;
+            let {card: {shared: {stopTime, startTime, totalTime, cardName}}} = sharedDate;
             document.getElementById('card-name').textContent = cardName;
-            document.getElementById('card-description').textContent = cardDescription;
             if(startTime && stopTime) {
                 document.getElementById('start-time').getElementsByClassName('time')[0].textContent = startTime;
                 document.getElementById('stop-time').getElementsByClassName('time')[0].textContent = stopTime;
