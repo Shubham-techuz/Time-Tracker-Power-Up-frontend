@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+</head>
+<body>
+    <div id="content">
+        <div class="content-container">
+            <!-- As a heading -->
+            <nav class="navbar">
+                <div class="navbar-container">
+                    <h1 id="card-name">Navbar</h1>
+                </div>
+            </nav>
+            <section class="time-section">
+                <label class="card-desc-label" for="cardDescription">Card Description:</label>
+                <textarea id="card-description" name="cardDescription" placeholder="Add a more detailed description..." rows="10" cols="50">
+                </textarea>
+                <p>
+                    <span id="start-time"><b>Start Time: </b><span class="time">Not Started</span></span>
+                    <br />
+                    <span id="stop-time"><b>Stop Time: </b><span class="time">Not Stopped</span></span>
+                </p>
+                <h6 id="time-interval-heading">Total Time: <span id="time-interval">00 : 00 : 00</span></h6>
+                <div class="btn-container">
+                    <button id="track-time" class="mod-primary">
+                        Track Time
+                    </button>
+                    <button id="clear-time">
+                        Clear Time
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="./js/modal.js"></script>
+</body>
+</html>

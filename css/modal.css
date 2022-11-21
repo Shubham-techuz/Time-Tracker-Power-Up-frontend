@@ -1,0 +1,46 @@
+body {
+    overflow-x: hidden;
+    margin: 0;
+}
+.hidden {
+    display: none;
+}
+.show {
+    display: block;
+}
+.btn-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    width: 100%;
+    margin: 0 auto;
+    height: 25px;
+    background-color:lightgoldenrodyellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px 10px 5px;
+    box-shadow: 0 8px 6px -6px black;
+}
+.time-section {
+    padding: 10px 40px 10px 40px;
+}
+#card-name {
+    margin: 0;
+    color: black;
+    text-transform: capitalize;
+}
+#card-description {
+    resize: none;
+}
+#clear-time {
+    background-color: orange;
+    color: white;
+}
+#description-btn {
+    background-color: blue;
+    color: white;
+}
